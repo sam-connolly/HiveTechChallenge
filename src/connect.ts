@@ -1,0 +1,27 @@
+import mongoose from 'mongoose';
+
+type DBIn = {
+  db: string;
+};
+
+
+export default ({ db }: DBIn) => {
+  const connect = () => {
+    mongoose
+      .connect(db, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true, 
+        useCreateIndex: true
+      })
+      .then(() => {
+        return console.info('Connected to Database');
+      })
+      .catch((error) => {
+        console.error('Error connecting to database: ', error);
+        return process.exit(1);
+      });
+  };
+  connect();
+  
+  mongoose.connection.on('disconnected', connect);
+};
