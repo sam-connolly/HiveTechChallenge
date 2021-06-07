@@ -23,7 +23,7 @@ const port: number = 3000;
 
   apolloServer.applyMiddleware({ app, cors: false });
 
-  const db = 'mongodb://localhost:27017/local'
+  const db = 'mongodb+srv://adminUse:adminUser@hivetechchallenge.et0yy.mongodb.net/hive?retryWrites=true&w=majority'
   connect({ db });
   
   app.listen(port, () => {

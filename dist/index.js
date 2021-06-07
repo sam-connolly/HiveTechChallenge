@@ -17,13 +17,13 @@ const port = 3000;
         schema: await type_graphql_1.buildSchema({
             resolvers: [
                 FiveResolver_1.FiveResolver,
-                UsersResolver_1.UsersResolver
+                UsersResolver_1.UserResolver
             ]
         }),
         context: ({ req, res }) => ({ req, res })
     });
     apolloServer.applyMiddleware({ app, cors: false });
-    const db = 'mongodb://localhost:27017/local';
+    const db = 'mongodb+srv://adminUse:adminUser@hivetechchallenge.et0yy.mongodb.net/hive?retryWrites=true&w=majority';
     connect_1.default({ db });
     app.listen(port, () => {
         console.log(`Server running on port ${port}`);
