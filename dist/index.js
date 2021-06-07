@@ -20,7 +20,9 @@ const port = 3000;
                 UsersResolver_1.UserResolver
             ]
         }),
-        context: ({ req, res }) => ({ req, res })
+        context: ({ req, res }) => ({ req, res }),
+        playground: true,
+        introspection: true
     });
     apolloServer.applyMiddleware({ app, cors: false });
     const db = 'mongodb+srv://adminUse:adminUser@hivetechchallenge.et0yy.mongodb.net/hive?retryWrites=true&w=majority';

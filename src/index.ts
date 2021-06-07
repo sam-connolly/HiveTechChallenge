@@ -18,7 +18,9 @@ const port: number = 3000;
         UserResolver
       ]
     }),
-    context: ({ req, res }) => ({ req, res })
+    context: ({ req, res }) => ({ req, res }),
+    playground: true,
+    introspection: true
   });
 
   apolloServer.applyMiddleware({ app, cors: false });
