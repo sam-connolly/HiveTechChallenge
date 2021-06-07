@@ -26,7 +26,7 @@ const port: number = 3000;
   const db = 'mongodb+srv://adminUse:adminUser@hivetechchallenge.et0yy.mongodb.net/hive?retryWrites=true&w=majority'
   connect({ db });
   
-  app.listen(port, () => {
+  app.listen(process.env.PORT || port, () => {
     console.log(`Server running on port ${port}`);
   });
 })();
