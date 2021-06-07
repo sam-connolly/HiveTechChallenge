@@ -4,7 +4,6 @@ type DBIn = {
   db: string;
 };
 
-
 export default ({ db }: DBIn) => {
   const connect = () => {
     mongoose

@@ -1,9 +1,3 @@
-export const User = mongoose.model('User', {
-  firstName: String,
-  surname: String,
-  username: String
-});
-
 import * as mongoose from 'mongoose';
 
 export const UserSchema = new mongoose.Schema({
@@ -12,6 +6,6 @@ export const UserSchema = new mongoose.Schema({
   username: {type:String, required: true}
 });
 
-const Five = mongoose.model('Five', FiveSchema);
+const User = mongoose.model('User', UserSchema);
 
-export default Five;
+export default User;

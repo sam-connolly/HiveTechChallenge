@@ -2,10 +2,8 @@ import "reflect-metadata";
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
-import mongoose from 'mongoose';
 import connect from './connect';
-// import { UsersResolver } from './resolvers/UsersResolver';
-import { HelloWorldResolver } from './resolvers/HelloWordResolver';
+import { UserResolver } from './resolvers/UsersResolver';
 import { FiveResolver } from './resolvers/FiveResolver';
 
 const port: number = 3000;
@@ -16,9 +14,8 @@ const port: number = 3000;
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [
-        HelloWorldResolver,
         FiveResolver,
-        // UsersResolver
+        UserResolver
       ]
     }),
     context: ({ req, res }) => ({ req, res })
@@ -32,5 +29,4 @@ const port: number = 3000;
   app.listen(port, () => {
     console.log(`Server running on port ${port}`);
   });
-
 })();
